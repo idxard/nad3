@@ -8,22 +8,7 @@ body {
   font-size: 12px;
   background-size: cover; /* Sesuaikan ukuran wallpaper */
   background-position: center; /* Posisikan wallpaper di tengah */
-  animation: changeBackground 15s infinite; /* Tambahkan animasi untuk mengganti wallpaper */
-}
-
-@keyframes changeBackground {
-  0% {
-    background-image: url('image/image1.jpg');
-  }
-  33% {
-    background-image: url('image/image2.jpg');
-  }
-  66% {
-    background-image: url('image/image3.jpg');
-  }
-  100% {
-    background-image: url('image/image1.jpg');
-  }
+  background-image: url('image/image1.jpg'); /* Gunakan satu wallpaper saja */
 }
 
 a {
@@ -32,6 +17,7 @@ a {
   font-size: 1rem;
 }
 
+/* ================================ Header Styles ================================ */
 header {
   width: 100%;
   max-width: 1140px;
@@ -57,7 +43,7 @@ header a:hover {
   color: #000;
 }
 
-/* carousel */
+/* ==================== Carousel Styles ==================== */
 .carousel {
   height: 100vh;
   margin-top: -50px;
@@ -115,37 +101,7 @@ header a:hover {
   font-size: 1.75rem;
 }
 
-.arrows {
-  position: absolute;
-  top: 80%;
-  right: 52%;
-  z-index: 100;
-  width: 300px;
-  max-width: 30%;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.arrows button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgba(238, 238, 238, 0.25);
-  border: none;
-  color: #fff;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: 1.5rem;
-  transition: background-color 0.5s, color 0.5s;
-}
-
-.arrows button:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-/* animation */
+/* ==================== Animation Styles ==================== */
 .carousel .list .item:nth-child(1) {
   z-index: 1;
 }
@@ -186,17 +142,6 @@ header a:hover {
   animation-delay: 1.8s !important;
 }
 
-/* create animation when next click */
-.carousel.next .list .item:nth-child(1) img {
-  width: 150px;
-  height: 220px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  border-radius: 30px;
-  animation: showImage 0.5s linear 1 forwards;
-}
-
 @keyframes showImage {
   to {
     bottom: 0;
@@ -227,6 +172,7 @@ header a:hover {
   }
 }
 
+/* ==================== Form Styles ==================== */
 .form {
   position: absolute;
   right: 0;
@@ -275,6 +221,7 @@ header a:hover {
   background-color: #2ec4b6;
 }
 
+/* ==================== Left Content Styles ==================== */
 .left-content .author,
 .left-content .title {
   font-size: 3rem;
@@ -291,6 +238,7 @@ header a:hover {
   margin-left: 5px;
 }
 
+/* ==================== Social Media Styles ==================== */
 .social-media a i {
   color: #ffffff;
   font-size: 1.5rem;
@@ -317,6 +265,7 @@ header a:hover {
   filter: drop-shadow(0 0 4px #0000004f);
 }
 
+/* ==================== Footer Styles ==================== */
 footer {
   position: absolute;
   bottom: 0;
@@ -328,7 +277,7 @@ footer {
   z-index: 100;
 }
 
-/* Dropdown CV */
+/* ==================== Dropdown CV Styles ==================== */
 .dropdownCV {
   position: relative;
   display: inline-block;
@@ -345,7 +294,7 @@ footer {
 }
 
 .dropdownCV .dropdown-content a {
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 5px 10px;
   text-decoration: none;
   text-align: center;
@@ -365,44 +314,120 @@ footer {
   background-color: #3e8e41;
 }
 
-/* Responsive adjustments */
+/* ==================== Responsive Adjustments for Mobile ==================== */
 @media screen and (max-width: 678px) {
-  .carousel .list .item .content {
-    padding-right: 0;
-  }
-  .carousel .list .item .content .title {
-    font-size: 2rem;
-  }
-  .carousel .list .item .content .topic {
-    font-size: 1.5rem;
-  }
-  .carousel .list .item .content .des {
-    font-size: 0.875rem;
-  }
-  .thumbnail .item {
-    width: 60px; /* Perkecil ukuran thumbnail */
-    height: 90px; /* Perkecil ukuran thumbnail */
-  }
+  /* ========== Pembatas untuk header ========== */
   header {
-    justify-content: center;
+    justify-content: flex-start; /* Gunakan flex-start untuk lebih konsisten */
   }
+  /* ========== Pembatas untuk footer ========== */
   footer {
-    text-align: center;
-    font-size: 0.75rem; /* Perkecil ukuran font footer */
+    text-align: left; /* Ubah posisi teks footer ke kiri */
+    font-size: 0.5rem; /* Perkecil ukuran font footer */
   }
-}
+  
+  /* ==================== Carousel Styles ==================== */
+  .carousel {
+    height: 80vh; /* Perkecil tinggi carousel */
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
 
-@media screen and (min-width: 679px) and (max-width: 1024px) {
+  .carousel .list .item {
+    width: 100%;
+    height: 80%; /* Perkecil tinggi item */
+    position: absolute;
+    inset: 0;
+  }
+
+  .carousel .list .item img {
+    width: 100%;
+    height: 80%; /* Perkecil tinggi gambar */
+    object-fit: cover;
+  }
+
+  .carousel .list .item::before,
+  .carousel .list .item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80%; /* Perkecil tinggi overlay */
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
   .carousel .list .item .content {
-    padding-right: 10%;
+    position: absolute;
+    top: 10%; /* Sesuaikan posisi konten */
+    width: 100%;
+    max-width: 1140px;
+    left: 0; /* Ubah posisi konten ke kiri */
+    transform: translateX(0); /* Hapus transformasi */
+    box-sizing: border-box;
+    color: #efefef;
+    text-shadow: 0 5px 10px #0004;
+    z-index: 2;
+    font-size: 0.8rem; /* Perkecil ukuran font konten */
   }
-  .carousel .list .item .content .title {
-    font-size: 3rem;
+
+  .thumbnail .item .content .title {
+    font-weight: 600;
+    font-size: 1.5rem; /* Perkecil ukuran font title */
   }
-  .carousel .list .item .content .topic {
-    font-size: 2rem;
+
+  .thumbnail .item .content .description {
+    font-weight: 400;
+    font-size: 1.25rem; /* Perkecil ukuran font description */
   }
-  .carousel .list .item .content .des {
-    font-size: 1rem;
+
+  /* ==================== Form Styles ==================== */
+  .form {
+    position: absolute;
+    background-color: #fff;
+    padding: 5px; /* Perkecil padding form */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(11, 247, 208, 0.267);
+    max-width: 300px; /* Perkecil lebar form */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #000;
+    font-size: 0.8rem; /* Perkecil ukuran font form */
+    left: 0; /* Ubah posisi form ke kiri */
+  }
+
+  .form label {
+    font-weight: bold;
+    font-size: 8px; /* Perkecil ukuran font label */
+  }
+
+  .form input[type="text"],
+  .form input[type="email"],
+  .form textarea {
+    width: 100%;
+    padding: 5px; /* Perkecil padding input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .form input[type="submit"] {
+    background-color: #3af1d6;
+    color: #fff;
+    border: none;
+    padding: 5px; /* Perkecil padding submit */
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.5rem; /* Perkecil ukuran font submit */
+    font-weight: bold;
+    transition: background-color 0.3s; /* Tambahkan transisi untuk efek hover */
+  }
+
+  .form input[type="submit"]:hover {
+    background-color: #2ec4b6;
   }
 }

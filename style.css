@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ============================== Body Styles ============================== */
 body {
   margin: 0;
   background-color: #000;
@@ -6,11 +8,15 @@ body {
   font-family: Poppins, sans-serif;
   font-size: 12px;
 }
+
+/* ============================== Anchor Styles ============================== */
 a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
 }
+
+/* ============================== Header Styles ============================== */
 header {
   width: 100%;
   max-width: 1140px;
@@ -29,12 +35,44 @@ header a {
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
-
 header a:hover {
   background-color: #3af1d6;
   color: #000;
 }
-/* carousel */
+
+/* ============================== Dropdown CV Styles ============================== */
+.dropdownCV {
+  position: relative;
+  display: inline-block;
+}
+.dropdownCV .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f900;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left: 17px;
+}
+.dropdownCV .dropdown-content a {
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.dropdownCV .dropdown-content a:hover {
+  background-color: #3af1d6;
+  color: #000;
+}
+.dropdownCV:hover .dropdown-content {
+  display: block;
+}
+.dropdownCV:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* ============================== Carousel Styles ============================== */
 .carousel {
   height: 100vh;
   margin-top: -50px;
@@ -42,7 +80,6 @@ header a:hover {
   overflow: hidden;
   position: relative;
 }
-
 .carousel .list .item {
   width: 100%;
   height: 100%;
@@ -102,7 +139,8 @@ header a:hover {
   border: 1px solid #fff;
   color: #ffffff;
 }
-/* thumbail */
+
+/* ============================== Thumbnail Styles ============================== */
 .thumbnail {
   position: absolute;
   bottom: 20px; /* Posisikan di bawah */
@@ -138,6 +176,7 @@ header a:hover {
   font-weight: 300;
 }
 
+/* ============================== Arrows Styles ============================== */
 .arrows {
   position: absolute;
   top: 80%;
@@ -165,13 +204,10 @@ header a:hover {
   color: #000;
 }
 
-/* animation */
+/* ============================== Animation Styles ============================== */
 .carousel .list .item:nth-child(1) {
   z-index: 1;
 }
-
-/* animation text in first item */
-
 .carousel .list .item:nth-child(1) .content .author,
 .carousel .list .item:nth-child(1) .content .title,
 .carousel .list .item:nth-child(1) .content .topic,
@@ -190,18 +226,20 @@ header a:hover {
   }
 }
 .carousel .list .item:nth-child(1) .content .title {
-  animation-delay: 1.2s !important;
+  animation-delay: 0.5s !important;
+}
+.carousel .list .item:nth-child(1) .content .author {
+  animation-delay: 0.7s !important;
 }
 .carousel .list .item:nth-child(1) .content .topic {
-  animation-delay: 1.4s !important;
+  animation-delay: 0.8s !important;
 }
 .carousel .list .item:nth-child(1) .content .des {
-  animation-delay: 1.6s !important;
+  animation-delay: 0.9s !important;
 }
 .carousel .list .item:nth-child(1) .content .buttons {
-  animation-delay: 1.8s !important;
+  animation-delay: 1.0s !important;
 }
-/* create animation when next click */
 .carousel.next .list .item:nth-child(1) img {
   width: 150px;
   height: 220px;
@@ -220,7 +258,6 @@ header a:hover {
     border-radius: 0;
   }
 }
-
 .carousel.next .thumbnail .item:nth-last-child(1) {
   overflow: hidden;
   animation: showThumbnail 0.5s linear 1 forwards;
@@ -237,15 +274,13 @@ header a:hover {
 .carousel.next .thumbnail {
   animation: effectNext 0.5s linear 1 forwards;
 }
-
 @keyframes effectNext {
   from {
     transform: translateX(150px);
   }
 }
 
-/* running time */
-
+/* ============================== Running Time Styles ============================== */
 .carousel .time {
   position: absolute;
   z-index: 1000;
@@ -255,7 +290,6 @@ header a:hover {
   left: 0;
   top: 0;
 }
-
 .carousel.next .time,
 .carousel.prev .time {
   animation: runningTime 3s linear 1 forwards;
@@ -269,12 +303,10 @@ header a:hover {
   }
 }
 
-/* prev click */
-
+/* ============================== Prev Click Styles ============================== */
 .carousel.prev .list .item:nth-child(2) {
   z-index: 2;
 }
-
 .carousel.prev .list .item:nth-child(2) img {
   animation: outFrame 0.5s linear 1 forwards;
   position: absolute;
@@ -290,7 +322,6 @@ header a:hover {
     border-radius: 20px;
   }
 }
-
 .carousel.prev .thumbnail .item:nth-child(1) {
   overflow: hidden;
   opacity: 0;
@@ -307,7 +338,6 @@ header a:hover {
 .carousel.prev .list .item:nth-child(2) .content .buttons {
   animation: contentOut 1.5s linear 1 forwards !important;
 }
-
 @keyframes contentOut {
   to {
     transform: translateY(-150px);
@@ -315,51 +345,8 @@ header a:hover {
     opacity: 0;
   }
 }
-@media screen and (max-width: 678px) {
-  .carousel .list .item .content {
-    padding-right: 0;
-  }
-  .carousel .list .item .content .title {
-    font-size: 2rem;
-  }
-  .carousel .list .item .content .topic {
-    font-size: 1.5rem;
-  }
-  .carousel .list .item .content .des {
-    font-size: 0.875rem;
-  }
-  .thumbnail .item {
-    width: 60px; /* Perkecil ukuran thumbnail */
-    height: 90px; /* Perkecil ukuran thumbnail */
-  }
-  header {
-    justify-content: center;
-  }
-  footer {
-    text-align: center;
-    font-size: 0.75rem; /* Perkecil ukuran font footer */
-  }
-}
 
-@media screen and (min-width: 679px) and (max-width: 1024px) {
-  .carousel .list .item .content {
-    padding-right: 10%;
-  }
-  .carousel .list .item .content .title {
-    font-size: 3rem;
-  }
-  .carousel .list .item .content .topic {
-    font-size: 2rem;
-  }
-  .carousel .list .item .content .des {
-    font-size: 1rem;
-  }
-  .thumbnail .item {
-    width: 80px; /* Perkecil ukuran thumbnail */
-    height: 120px; /* Perkecil ukuran thumbnail */
-  }
-}
-
+/* ============================== Footer Styles ============================== */
 footer {
   position: absolute;
   bottom: 0;
@@ -371,39 +358,139 @@ footer {
   z-index: 100;
 }
 
-/* Dropdown CV */
-.dropdownCV {
-  position: relative;
-  display: inline-block;
-}
+/* ==================== Responsive Adjustments for Mobile ==================== */
+@media screen and (max-width: 678px) {
+  /* ==================== Carousel Content Styles ==================== */
+  .carousel {
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Atur posisi horizontal agar pas ditengah */
+    align-items: center; /* Atur posisi vertikal agar pas ditengah */
+  }
+  .carousel .list .item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    justify-content: center; /* Atur posisi horizontal agar pas ditengah */
+    align-items: center; /* Atur posisi vertikal agar pas ditengah */
+  }
+  .carousel .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .carousel .list .item .content {
+    position: absolute;
+    top: 28%; /* Pindahkan posisi teks lebih ke atas */
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 360px;
+    padding-right: 10%;
+    box-sizing: border-box;
+    color: #efefef;
+    text-shadow: 0 5px 10px #0004;
+    text-align: center; /* Atur teks agar berada di tengah */
+  }
+  .carousel .list .item .author {
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: rgba(82, 215, 208, 0.998);
+  }
+  .des {
+    font-size: 12px;
+  }
+  .carousel .list .item .title,
+  .carousel .list .item .topic {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.3em;
+  }
+  .carousel .list .item .topic {
+    color: #3af1d6;
+  }
+  .carousel .list .item .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: 30px;
+    gap: 5px;
+    margin-top: 20px;
+    justify-content: center; /* Atur tombol agar berada di tengah */
+  }
+  .carousel .list .item .buttons button {
+    border: none;
+    background-color: #ffffff;
+    letter-spacing: 2px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+  }
+  .carousel .list .item .buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #ffffff;
+  }
 
-.dropdownCV .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f900;
-  min-width: 100px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-left: 17px;
-}
+  /* ==================== Thumbnail Styles ==================== */
+  .thumbnail .item {
+    width: 60px; /* Perkecil ukuran thumbnail */
+    height: 90px; /* Perkecil ukuran thumbnail */
+    display: flex;
+    justify-content: center; /* Atur posisi horizontal agar pas ditengah */
+    align-items: center; /* Atur posisi vertikal agar pas ditengah */
+  }
 
-.dropdownCV .dropdown-content a {
-  color: black;
-  padding: 5px 10px;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-}
+  /* ==================== Header Styles ==================== */
+  header {
+    justify-content: center;
+    font-size: 0.8rem; /* Perkecil ukuran font */
+    letter-spacing: -0.5px; /* Agak rapatkan */
+  }
 
-.dropdownCV .dropdown-content a:hover {
-  background-color: #3af1d6;
-  color: #000;
-}
+  /* ==================== Arrows Styles ==================== */
+  .arrows {
+    position: absolute;
+    top: 75%;
+    left: 38%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .arrows button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(238, 238, 238, 0.295);
+    border: none;
+    color: #ffffff7e;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+  .arrows button:hover {
+    background-color: #fff;
+    color: #000;
+  }
 
-.dropdownCV:hover .dropdown-content {
-  display: block;
-}
-
-.dropdownCV:hover .dropbtn {
-  background-color: #3e8e41;
+  /* ==================== Footer Styles ==================== */
+  footer {
+    position: fixed;
+    bottom: -10px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: #ffffff59;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0;
+    z-index: 100;
+    font-size: 0.5rem; /* Perkecil ukuran font footer */
+  }
 }
